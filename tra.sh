@@ -113,14 +113,15 @@ get_trash() {
 }
 
 get_realpath() {
-  case "$1" in
-    /*)
-      path="$1"
-      ;;
-    *)
-      path=$( cd "$(dirname "$1")" && printf '%s/%s' "$(pwd -P)" "$(basename "$1")" )
-      ;;
-  esac
+  basename=$(basename "$1")
+  path=$(
+    cd "$(dirname "$1")" &&
+    if [ "$(pwd -P)" = "/" ]; then
+      printf '/%s' "$basename"
+    else
+      printf '%s/%s' "$(pwd -P)" "$basename"
+    fi
+  )
 }
 
 cmd_put() {
