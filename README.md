@@ -1,4 +1,19 @@
 # 🗑tra.sh
+用 POSIX Shell 编写的终端回收站管理工具，遵守 [FreeDesktop.org's Trash specification](https://specifications.freedesktop.org/trash/latest/) 规范
+
+仅使用以下 POSIX 工具
+- awk
+- basename
+- date
+- df
+- dirname
+- find
+- id
+- mkdir
+- mv
+- rm
+- sort
+- tail
 
 ## 特性
 - [x] 完全 POSIX 兼容，无外部依赖
